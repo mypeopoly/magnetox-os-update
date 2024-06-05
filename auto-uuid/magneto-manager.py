@@ -10,7 +10,7 @@ import serial.tools.list_ports
 
 CONFIG_PATH = "/home/pi/printer_data/config/magneto_device.cfg"
 BACKUP_PATH = "/home/pi/printer_data/config/magneto_device.cfg.bak"
-VERSION_STR = "magneto-x-mainsailOS-2024-5-1-v1.1.3-mag-x"
+VERSION_STR = "magneto-x-mainsailOS-2024-5-1-v1.1.4-mag-x-dev"
 
 app = Flask(__name__)
 serial_connection = None

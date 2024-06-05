@@ -6,6 +6,14 @@ update_os() {
     
     echo "Installing Qt development packages..."
     echo 'armbian' | sudo -S apt-get install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libqt5serialport5 libqt5serialport5-dev
+
+    #Update KlipperScreen
+    
+    echo 'armbian' | sudo service KlipperScreen stop
+    /home/pi/.KlipperScreen-env/bin/pip3 install sdbus
+    /home/pi/.KlipperScreen-env/bin/pip3 install sdbus_networkmanager
+    mv /home/pi/KlipperScreen /home/pi/KlipperScreen-backof
+    git clone https://github.com/KlipperScreen/KlipperScreen /home/pi/KlipperScreen 
     
     if [ $? -ne 0 ]; then
         echo "Failed to install Qt development packages. Exiting..."
