@@ -5,6 +5,7 @@ update_os() {
     echo "Updating OS to newer version..."
     
     echo "Installing Qt development packages..."
+    echo 'armbian' | sudo -S apt-get update
     echo 'armbian' | sudo -S apt-get install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libqt5serialport5 libqt5serialport5-dev
     
     if [ $? -ne 0 ]; then
