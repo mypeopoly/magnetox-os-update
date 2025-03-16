@@ -37,7 +37,8 @@ update_os() {
     cp config/Line_Purge.cfg /home/pi/printer_data/config/KAMP/
     cp KlipperScreen/* /home/pi/KlipperScreen/panels/
     echo 'armbian' | sudo cp -f ./auto-uuid/mainsail.cfg /home/pi/mainsail-config/mainsail.cfg
-    echo 'armbian' | sudo cp ./auto-uuid/magneto-automount /usr/bin/makerbase-automount
+    echo 'armbian' | sudo cp ./auto-uuid/magneto-automount /usr/bin/magneto-automount
+    echo 'armbian' | sudo chmod +x /usr/bin/magneto-automount
     echo 'armbian' | sudo cp ./auto-uuid/magneto-automount@.service /usr/lib/systemd/system/
     echo 'armbian' | sudo systemctl daemon-reload
     echo 'armbian' | sudo cp ./auto-uuid/99-magneto-automount.rules /etc/udev/rules.d/
