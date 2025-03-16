@@ -1,0 +1,2 @@
+KERNEL=="sd[a-z][0-9]", ACTION=="add", SUBSYSTEM=="block", ENV{SYSTEMD_WANTS}="magneto-automount@%k.service"
+ACTION=="remove", SUBSYSTEM=="block", KERNEL=="sd[a-z][0-9]", RUN+="/home/pi/auto-uuid/mount-umount.sh remove %k"

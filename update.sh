@@ -31,9 +31,16 @@ update_os() {
     chmod +x /home/pi/auto-uuid/*.sh
     chmod +x /home/pi/auto-uuid/MagnetoWifiHelper
     chmod +x /home/pi/auto-uuid/Magmotor
+    chmod +x /home/pi/auto-uuid/99-magneto-automount.rules
+    chmod +x /home/pi/auto-uuid/magneto-automount
     cp config/* /home/pi/printer_data/config/
     cp config/Line_Purge.cfg /home/pi/printer_data/config/KAMP/
     cp KlipperScreen/* /home/pi/KlipperScreen/panels/
+    echo 'armbian' | sudo cp ./auto-uuid/magneto-automount /usr/bin/makerbase-automount
+    echo 'armbian' | sudo cp ./auto-uuid/magneto-automount@.service /usr/lib/systemd/system/
+    echo 'armbian' | sudo systemctl daemon-reload
+    echo 'armbian' | sudo cp ./auto-uuid/99-magneto-automount.rules /etc/udev/rules.d/
+    echo 'armbian' | sudo udevadm control --reload-rules
     echo "Files copied successfully."
     echo 'armbian' | sudo sync
     echo "OS and applications have been updated."
